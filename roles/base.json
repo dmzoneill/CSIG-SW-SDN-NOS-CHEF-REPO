@@ -1,0 +1,14 @@
+{
+  "name": "base",
+  "description": "Default role",
+  "run_list": [
+    "recipe[yum]",
+    "recipe[yum-fedora]",
+    "recipe[ntp]",
+    "recipe[issue]",
+    "recipe[motd]",
+    "recipe[nsswitch]",
+    "recipe[sssd_ldap]",
+    "recipe[krb5]"
+  ]
+}

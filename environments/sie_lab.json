@@ -1,0 +1,70 @@
+{
+  "name": "sie_lab",
+  "default_attributes": {
+    "ntp": {
+      "servers": [
+        "ntp-host1.ir.intel.com",
+        "ntp-host2.ir.intel.com"
+      ]
+    },
+    "yum": {
+      "updates": {
+        "enabled": false
+      },
+      "main": {
+        "cachedir": "/var/cache/yum/$basearch/$releasever",
+        "keepcache": false,
+        "debuglevel": "2",
+        "logfile": "/var/log/yum.log",
+        "exactarch": true,
+        "obsoletes": true,
+        "installonly_limit": "3",
+        "plugins": true,
+        "proxy": "http://proxy.ir.intel.com:911"
+      }
+    },
+    "sssd_ldap": {
+      "domain": "GER",
+      "id_provider": "ldap",
+      "auth_provider": "ldap",
+      "chpass_provider": "ldap",
+      "enumerate": true,
+      "cache_credentials": false,
+      "ldap_schema": "rfc2307bis",
+      "ldap_uri": "ldaps://ger.corp.intel.com:3269",
+      "ldap_search_base": "dc=ger,dc=corp,dc=intel,dc=com",
+      "ldap_user_search_base": "OU=Workers,DC=ger,DC=corp,DC=intel,DC=com",
+      "ldap_user_object_class": "user",
+      "ldap_user_name": "sAMAccountName",
+      "shell_fallback": "/bin/bash",
+      "ldap_group_search_base": "dc=ger,dc=corp,dc=intel,dc=com",
+      "ldap_group_object_class": "group",
+      "ldap_id_use_start_tls": "true",
+      "ldap_tls_reqcert": "never",
+      "ldap_tls_cacertdir": "/etc/pki/tls/certs",
+      "ldap_default_bind_dn": "CN=csig_sdnd_nos,OU=GenericAccounts,OU=sie,OU=UNIX,OU=Engineering Computing,OU=Resources,DC=ger,DC=corp,DC=intel,DC=com",
+      "ldap_default_authtok": "VwN0^lm1",
+      "authconfig_params": "--enablesssd --enablesssdauth --enablelocauthorize --update"
+    },
+    "krb5": {
+      "krb5_conf": {
+        "realms": {
+          "default_realm_admin_server": "IRSGER201.GER.CORP.INTEL.COM"
+        }
+      },
+      "default_realm": "GER.CORP.INTEL.COM",
+      "realms": [
+        "AMR.CORP.INTEL.COM",
+        "CCR.CORP.INTEL.COM",
+        "GAR.CORP.INTEL.COM"
+      ],
+      "default_realm_kdcs": [
+        "irsger201.ger.corp.intel.com",
+        "irsger202.ger.corp.intel.com",
+        "irsger203.ger.corp.intel.com"
+      ],
+      "default_realm_admin_server": "irsger201.ger.corp.intel.com",
+      "lookup_kdcs": "true"
+    }
+  }
+}

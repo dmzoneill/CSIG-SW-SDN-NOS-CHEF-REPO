@@ -1,0 +1,21 @@
+{
+  "name": "or_lab",
+  "default_attributes": {
+    "yum": {
+      "updates": {
+        "enabled": false
+      },
+      "main": {
+        "cachedir": "/var/cache/yum/$basearch/$releasever",
+        "keepcache": false,
+        "debuglevel": "2",
+        "logfile": "/var/log/yum.log",
+        "exactarch": true,
+        "obsoletes": true,
+        "installonly_limit": "3",
+        "plugins": true,
+        "proxy": "http://proxy.ir.intel.com:911"
+      }
+    }
+  }
+}
